@@ -1,0 +1,13 @@
+<div id="menu-main">
+    <div class="brand">Notes</div>
+    <div *ngFor="let item of data">
+        <div class="category">
+            <textarea class="category-name" rows="1" [disabled]="isDisabled">{{item.name}}</textarea>
+            <div class="category-button" (click)="renameCategory()">E</div>
+        </div>
+        <div *ngFor="let item of item.projets">
+            <div class="project">{{item}}</div>
+        </div>
+    </div>
+    <div class="category new" (click)="addCategory()">+ Add new category</div>
+</div>

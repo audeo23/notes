@@ -1,0 +1,55 @@
+#menu-main {
+    background-color: #fafafa;
+    width: 250px;
+    box-sizing: border-box;
+    padding: 10px;
+    height: 100%;
+}
+.brand {
+    color: #1857bb;
+    font-weight: bold;
+    font-size: 30px;
+}
+.category {
+    font-weight: bold;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+}
+.category-name {
+    flex: 1;
+    font-size: 16px;
+}
+.category-button {
+    width: 30px;
+    text-align: center;
+    display: none;
+}
+.category:hover .category-button{
+    display: block;
+}
+.category.new {
+    color: lightgray;
+}
+textarea {
+    border: none;
+    overflow: auto;
+    // outline: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    resize: none; /*remove the resize handle on the bottom right*/
+    background-color: transparent;
+}
+.project {
+    margin-bottom: 5px;
+    font-size: 14px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+.project:hover {
+    background-color: #d4d3d3;
+    border-radius: 5px;
+}

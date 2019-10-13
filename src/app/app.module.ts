@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { ProjectViewComponent } from './project-view/project-view.component';
 import { EditorComponent } from './editor/editor.component';
 import { TodoComponent } from './todo/todo.component';
+import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProjectViewComponent,
     EditorComponent,
-    TodoComponent
+    TodoComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,

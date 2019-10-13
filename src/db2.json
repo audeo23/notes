@@ -1,0 +1,26 @@
+[
+    {
+        "name": "Family",
+        "projets": [
+            "Vacation in Rome",
+            "Buy a new car",
+            "Throw a party for Eve"
+        ]
+    },
+    {
+        "name": "Work",
+        "projets": [
+            "Prepare presentation",
+            "Onboard James",
+            "Attend conference",
+            "Order Team t-shirts"
+        ]
+    },
+    {
+        "name": "Hobbies",
+        "projets": [
+            "Learn basic Italian",
+            "Run a marathon"
+        ]
+    }
+]
