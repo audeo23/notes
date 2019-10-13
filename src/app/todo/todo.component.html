@@ -1,0 +1,8 @@
+<div id="todo-main">
+    <div *ngFor="let todo of todos">
+        <div class="todo-item">
+            <input type="checkbox"><label contenteditable="true">{{todo.name}}</label>
+        </div>
+    </div>
+    <div id="new" class="todo-item" (click)="addItem()">Add new</div>
+</div>

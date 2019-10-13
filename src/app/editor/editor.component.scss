@@ -1,0 +1,22 @@
+#controls-wrapper {
+    height: 25px;
+}
+#controls {
+    display: none;
+}
+#textarea {
+    outline: none;
+}
+button {
+    border: none;
+    outline: none;
+    border-radius: 2px;
+    margin-right: 10px;
+    color: grey;
+}
+button:hover {
+    background-color: lightgray;
+}
+#main:hover #controls{
+    display: block;
+}

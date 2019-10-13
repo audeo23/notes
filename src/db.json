@@ -1,0 +1,13 @@
+{
+    "projectName" : "My first project",
+    "projectDescription" : "This is my first project",
+    "sections": [{
+        "first": {
+            "sectionDescription" : "This is my first section",
+            "todos" : [
+                {"name": "Set up meeting with JD"},
+                {"name": "Get new Jira license"}
+            ]
+        }
+    }]
+}
