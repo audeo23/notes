@@ -5,10 +5,17 @@
             <textarea class="category-name" rows="1" [disabled]="isDisabled">{{item.name}}</textarea>
             <div class="category-button" (click)="openMenu(data.indexOf(item).toString())">...</div>
             <div id="{{'category-menu-' + data.indexOf(item).toString()}}" class="category-menu">
-                <div>Rename category</div>
-                <div>Delete category</div>
+                <div>Category name</div>
+                <textarea rows="1" [(ngModel)]='categoryName'></textarea>
+                <hr>
+                <div (click)="deleteCategory(data.indexOf(item).toString())">Delete category</div>
+                <hr>
                 <div (click)="addProject(data.indexOf(item).toString())">Add project</div>
-                <div (click)="closeMenu(data.indexOf(item).toString())">Close</div>
+                <hr>
+                <div class="ctn-close-done">
+                    <div class="btn-close" (click)="closeMenu(data.indexOf(item).toString())">Close</div>
+                    <div class="btn-done" (click)="onDone(data.indexOf(item).toString())">Done</div>
+                </div>
             </div>
         </div>
         <div *ngFor="let item of item.projets">
