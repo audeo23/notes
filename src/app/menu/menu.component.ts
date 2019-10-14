@@ -11,18 +11,24 @@ export class MenuComponent implements OnInit {
   data: any = db2;
   isDisabled: boolean = true;
 
-  constructor() {
+  constructor() { }
+
+  ngOnInit() { }
+
+  addCategory() {
+    this.data.push({ "name": "Untitled category" })
   }
 
-  ngOnInit() {}
+  addProject(id: string) {
+    this.data[id].projets.push("Untitled")
+  }
 
-   addCategory() {
-     this.data.push({"name": "Untitled category"})
-   }
+  openMenu(id: string) {
+    document.getElementById("category-menu-" + id).style.display = "block"
+  }
 
-   renameCategory() {
-     console.log("Rename");
-     this.isDisabled = false
-   }
+  closeMenu(id: string) {
+    document.getElementById("category-menu-" + id).style.display = "none"
+  }
 
 }
