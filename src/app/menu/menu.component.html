@@ -1,8 +1,8 @@
 <div id="menu-main">
     <div class="brand">Notes</div>
-    <div *ngFor="let item of data">
+    <!-- <div *ngFor="let item of tree">
         <div [ngClass]="['category', data.indexOf(item).toString()]">
-            <textarea class="category-name" rows="1" [disabled]="isDisabled">{{item.name}}</textarea>
+            <textarea class="category-name" rows="1" [disabled]="isDisabled">{{item.folder_name}}</textarea>
             <div class="category-button" (click)="openMenu(data.indexOf(item).toString())">...</div>
             <div id="{{'category-menu-' + data.indexOf(item).toString()}}" class="category-menu">
                 <div>Category name</div>
@@ -17,10 +17,9 @@
                     <div class="btn-done" (click)="onDone(data.indexOf(item).toString())">Done</div>
                 </div>
             </div>
-        </div>
-        <div *ngFor="let item of item.projets">
-            <div class="project">{{item}}</div>
-        </div>
+        </div> -->
+    <div *ngFor="let item of tree">
+        <div class="project">{{item.folder_name}}</div>
     </div>
-    <div class="category new" (click)="addCategory()">+ Add new category</div>
 </div>
+<div class="category new" (click)="addCategory()">+ Add new category</div>
