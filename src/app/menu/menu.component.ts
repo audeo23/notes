@@ -1,5 +1,5 @@
-import { Component, OnInit, NgModule } from '@angular/core';
-import { DataService } from '../data.service';
+import { Component, OnInit } from '@angular/core';
+import { ApiService} from '../api.service'
 
 @Component({
   selector: 'app-menu',
@@ -13,14 +13,16 @@ export class MenuComponent implements OnInit {
   categoryName: string = "Undefined"
   tree: Array<String>
 
-  constructor(private dataService: DataService) { }
+  constructor(private apiService: ApiService) {}
 
   ngOnInit() {
     // let tree = this.dataService.getTree().then()
 
-    fetch('http://localhost:3000/tree')
-      .then(response => response.json())
-      .then(json => { this.tree = json })
+    // fetch('http://localhost:3000/tree')
+    //   .then(response => response.json())
+    //   .then(json => { this.tree = json })
+
+    // this.apiService.getTree().subscribe((data: any[])=>{console.log(data);
 
   }
 
