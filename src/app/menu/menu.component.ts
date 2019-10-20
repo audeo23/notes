@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService} from '../api.service'
+import { HttpClient } from '@angular/common/http';
+import { FormBuilder } from '@angular/forms';
+
 
 @Component({
   selector: 'app-menu',
@@ -11,19 +13,19 @@ export class MenuComponent implements OnInit {
 
   isDisabled: boolean = true;
   categoryName: string = "Undefined"
-  tree: Array<String>
+  tree = []
+  folders = []
 
-  constructor(private apiService: ApiService) {}
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
-    // let tree = this.dataService.getTree().then()
 
-    // fetch('http://localhost:3000/tree')
-    //   .then(response => response.json())
-    //   .then(json => { this.tree = json })
-
-    // this.apiService.getTree().subscribe((data: any[])=>{console.log(data);
-
+    // Compute tree
+    this.http.get<string[]>('http://localhost:3000/tree')
+      .subscribe(
+        (response) => { this.tree = response },
+        (error) => { console.log('Erreur ! : ' + error); }
+      );
   }
 
   addCategory() {

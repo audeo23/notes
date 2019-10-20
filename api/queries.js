@@ -9,15 +9,16 @@ const pool = new Pool({
   ssl: true
 })
 
-const getUsers = (request, response) => {
-    pool.query( 'select f.folder_name, f.id as folder_id, p.project_name, p.id as project_id from notes.projects p left join notes.folders f on p.folder_id = f.id', (error, results) => {
-      if (error) {
-        throw error
-      }
-      response.status(200).json(results.rows)
-    })
-  }
 
-  module.exports = {
-      getUsers
-  }
+const getTree = (request, response) => {
+  pool.query('select f.folder_name, f.id as folder_id, p.project_name, p.id as project_id from notes.projects p left join notes.folders f on p.folder_id = f.id', (error, results) => {
+    if (error) {
+      throw error
+    }
+    response.status(200).json(results.rows)
+  })
+}
+
+module.exports = {
+  getTree
+}

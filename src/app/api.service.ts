@@ -1,15 +1,23 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  public getTree() {
-    return fetch('http://localhost:3000/tree')
-
+  getTree() {
+    this.http
+      .get<any[]>('http://localhost:3000/tree')
+      .subscribe(
+        (response) => {
+          console.log(response);
+        },
+        (error) => {
+          console.log('Erreur ! : ' + error);
+        }
+      );
   }
-
 }

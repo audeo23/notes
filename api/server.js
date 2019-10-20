@@ -10,7 +10,7 @@ app.use(function(req, res, next) {
   next();
 });
 
-app.get('/tree', db.getUsers)
+app.get('/tree', db.getTree)
 
 app.listen(3000, function () {
   console.log('Example app listening on port 3000!')

@@ -18,7 +18,7 @@
                 </div>
             </div>
         </div> -->
-    <div *ngFor="let item of tree">
+    <div *ngFor="let item of tree | unique">
         <div class="project">{{item.folder_name}}</div>
     </div>
 </div>
