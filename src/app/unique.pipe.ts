@@ -1,7 +1,7 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'cc',
+  name: 'unique',
   pure: false
 })
 export class UniquePipe implements PipeTransform {
@@ -12,7 +12,7 @@ export class UniquePipe implements PipeTransform {
     let uniqueArray = value.filter(function (el, index, array) {
       return array.indexOf(el) == index;
     });
-
+    console.log(uniqueArray)
     return uniqueArray;
   }
 

@@ -23,7 +23,15 @@ export class MenuComponent implements OnInit {
     // Compute tree
     this.http.get<string[]>('http://localhost:3000/tree')
       .subscribe(
-        (response) => { this.tree = response },
+        (response) => {
+          this.tree = response;
+
+          let project = new Set()
+          response.forEach(item => { console.log(item)})
+
+
+          console.log(project)
+        },
         (error) => { console.log('Erreur ! : ' + error); }
       );
   }

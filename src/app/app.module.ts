@@ -7,7 +7,7 @@ import { EditorComponent } from './editor/editor.component';
 import { TodoComponent } from './todo/todo.component';
 import { MenuComponent } from './menu/menu.component';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule }    from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { UniquePipe } from './unique.pipe';
 
 @NgModule({
@@ -28,4 +28,5 @@ import { UniquePipe } from './unique.pipe';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+
+export class AppModule { }
