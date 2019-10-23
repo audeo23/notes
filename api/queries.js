@@ -25,12 +25,10 @@ const getTree = (request, response) => {
       }
       // Else fodler_id already is in [folder_ids] 
       else {
-        tree[tree.length -1]['projects'].push({ project_name: item['project_name'], project_id: item['project_id'] })
+        tree[tree.length - 1]['projects'].push({ project_name: item['project_name'], project_id: item['project_id'] })
         // console.log(tree[tree.length -1]['projects'])
       }
     })
-    console.log(tree)
-    console.log(folder_ids)
     response.status(200).json(tree)
   })
 }

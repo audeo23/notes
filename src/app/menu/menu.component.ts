@@ -15,10 +15,6 @@ export class MenuComponent implements OnInit {
   categoryName: string = "Undefined"
   tree = []
 
-  // tree = [   { folder_name : "XXX", 
-  //              folder_id = "XXX"}, 
-  //              projects : [ { porject_name : "XXX", project_id = "XXXX"} ,  ]]
-
 
 
 
@@ -29,14 +25,7 @@ export class MenuComponent implements OnInit {
     // Compute tree
     this.http.get<string[]>('http://localhost:3000/tree')
       .subscribe(
-        (response) => {
-          console.log(response) ;
-          response.forEach(item => { 
-            this.tree.push(item['folder_name'])  ;
-
-          }) ;
-          console.log(this.tree)
-        },
+        (response) => { this.tree = response ; console.log(response); },
         (error) => { console.log('Erreur ! : ' + error); }
       );
   }
