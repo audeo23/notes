@@ -11,13 +11,30 @@ const pool = new Pool({
 
 
 const getTree = (request, response) => {
-  pool.query('select f.folder_name, f.id as folder_id, p.project_name, p.id as project_id from notes.projects p left join notes.folders f on p.folder_id = f.id', (error, results) => {
+  pool.query('select f.folder_name, f.id as folder_id, p.project_name, p.id as project_id from notes.projects p left join notes.folders f on p.folder_id = f.id order by f.id, p.id', (error, results) => {
     if (error) {
       throw error
     }
-    response.status(200).json(results.rows)
+    var tree = [];
+    var folder_ids = []
+    var resp = results.rows.forEach(function (item) {
+      // If fodler_id does not existe in [folder_ids]
+      if (folder_ids.indexOf(item['folder_id']) == -1) {
+        folder_ids.push(item['folder_id']);
+        tree.push({ folder_name: item['folder_name'], folder_id: item['folder_id'], projects: [{ project_name: item['project_name'], project_id: item['project_id'] }] })
+      }
+      // Else fodler_id already is in [folder_ids] 
+      else {
+        tree[tree.length -1]['projects'].push({ project_name: item['project_name'], project_id: item['project_id'] })
+        // console.log(tree[tree.length -1]['projects'])
+      }
+    })
+    console.log(tree)
+    console.log(folder_ids)
+    response.status(200).json(tree)
   })
 }
+
 
 module.exports = {
   getTree

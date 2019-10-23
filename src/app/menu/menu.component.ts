@@ -14,7 +14,13 @@ export class MenuComponent implements OnInit {
   isDisabled: boolean = true;
   categoryName: string = "Undefined"
   tree = []
-  folders = []
+
+  // tree = [   { folder_name : "XXX", 
+  //              folder_id = "XXX"}, 
+  //              projects : [ { porject_name : "XXX", project_id = "XXXX"} ,  ]]
+
+
+
 
   constructor(private http: HttpClient) { }
 
@@ -24,13 +30,12 @@ export class MenuComponent implements OnInit {
     this.http.get<string[]>('http://localhost:3000/tree')
       .subscribe(
         (response) => {
-          this.tree = response;
+          console.log(response) ;
+          response.forEach(item => { 
+            this.tree.push(item['folder_name'])  ;
 
-          let project = new Set()
-          response.forEach(item => { console.log(item)})
-
-
-          console.log(project)
+          }) ;
+          console.log(this.tree)
         },
         (error) => { console.log('Erreur ! : ' + error); }
       );
