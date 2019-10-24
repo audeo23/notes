@@ -10,7 +10,7 @@
     font-weight: bold;
     font-size: 30px;
 }
-.category {
+.folder {
     font-weight: bold;
     margin-top: 30px;
     margin-bottom: 10px;
@@ -18,22 +18,22 @@
     cursor: pointer;
     display: flex;
 }
-.category-name {
+.folder-name {
     flex: 1;
     font-size: 16px;
 }
-.category-button {
+.folder-button {
     width: 30px;
     text-align: center;
     display: none;
 }
-.category:hover .category-button{
+.folder:hover .categfolderory-button{
     display: block;
 }
-.category-menu {
+.folder-menu {
     position: absolute;
     left : 260px;
-    display: none;
+    display: block;
     border-radius: 5px;
     padding: 5px;
     background-color: white;
@@ -56,7 +56,7 @@
 .btn-done {
     color: rgb(1, 167, 1);
 }
-.category.new {
+.folder.new {
     color: lightgray;
 }
 textarea {

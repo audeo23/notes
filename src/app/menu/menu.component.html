@@ -1,14 +1,34 @@
 <div id="menu-main">
     <div class="brand">Notes</div>
-    <div *ngFor="let folder of tree">{{folder.folder_name}}
 
-        <div *ngFor="let project of folder.projects">{{project.project_name}}</div>
+    <!-- Folder -->
+    <div *ngFor="let folder of tree">
+        <div id="{{'folder-' + folder.folder_id}}" [ngClass]="['folder']"> {{folder.folder_name}} </div>
 
-    </div>
-    <!-- <div [ngClass]="['category', tree.indexOf(item).toString()]">
+        <!-- Folder menu -->
+        <div id="{{'folder-menu-' + folder.folder_id}}" class="folder-menu">
+            <div>Category name</div>
+            <textarea rows="1" [(ngModel)]='categoryName'></textarea>
+            <hr>
+            <div (click)="deleteCategory(data.indexOf(item).toString())">Delete category</div>
+            <hr>
+            <div (click)="addProject(data.indexOf(item).toString())">Add project</div>
+            <hr>
+            <div class="ctn-close-done">
+                <div class="btn-close" (click)="closeMenu(data.indexOf(item).toString())">Close</div>
+                <div class="btn-done" (click)="onDone(data.indexOf(item).toString())">Done</div>
+            </div>
+        </div>
+
+        <!-- Projects -->
+        <div *ngFor="let project of folder.projects">
+            <div id="{{'project-' + project.project_id}}" [ngClass]="['project']">{{project.project_name}}</div>
+        </div>
+
+        <!-- <div [ngClass]="['category', tree.indexOf(item).toString()]">
             <textarea class="category-name" rows="1" [disabled]="isDisabled">{{item.folder_name}}</textarea> -->
-    <!-- <div class="category-button" (click)="openMenu(data.indexOf(item).toString())">...</div> -->
-    <!-- <div id="{{'category-menu-' + data.indexOf(item).toString()}}" class="category-menu">
+        <!-- <div class="category-button" (click)="openMenu(data.indexOf(item).toString())">...</div> -->
+        <!-- <div id="{{'category-menu-' + data.indexOf(item).toString()}}" class="category-menu">
                 <div>Category name</div>
                 <textarea rows="1" [(ngModel)]='categoryName'></textarea>
                 <hr>
@@ -20,10 +40,10 @@
                     <div class="btn-close" (click)="closeMenu(data.indexOf(item).toString())">Close</div>
                     <div class="btn-done" (click)="onDone(data.indexOf(item).toString())">Done</div>
                 </div> -->
-    <!-- </div>
+        <!-- </div>
         </div> -->
-    <!-- <div *ngFor="let item of tree | unique">
+        <!-- <div *ngFor="let item of tree | unique">
         <div class="project">{{item.folder_name}}</div>
     </div> -->
-</div>
-<div class="category new" (click)="addCategory()">+ Add new category</div>
+        <!-- <div class="folder new" (click)="addCategory()">+ Add new category</div> -->
+    </div>

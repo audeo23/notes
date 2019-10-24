@@ -10,7 +10,7 @@ const pool = new Pool({
 })
 
 
-const getTree = (request, response) => {
+getTree = (request, response) => {
   pool.query('select f.folder_name, f.id as folder_id, p.project_name, p.id as project_id from notes.projects p left join notes.folders f on p.folder_id = f.id order by f.id, p.id', (error, results) => {
     if (error) {
       throw error
@@ -33,7 +33,20 @@ const getTree = (request, response) => {
   })
 }
 
+updateFolderName = (request, response) => {
+  const text = "update notes.folders set folder_name = $1 where id = $2"
+  const values = ['TEST', 1]
+  pool.query(text, values, (err, res) => {
+    if (err) { console.log(err.stack) }
+    else {
+      response.status(200).json(response.rows)
+    }
+  })
+
+}
+
 
 module.exports = {
-  getTree
+  getTree,
+  updateFolderName
 }
